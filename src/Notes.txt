@@ -1,0 +1,11 @@
+1.npm add axios  (api from  https://dictionaryapi.dev/)
+2.import axios from axios 
+3.add apiUrl inside the search function
+4.then add  axios.get(apiUrl).then(handleResponse);
+5.create handleResponse function it will receive a response  and console.log npm
+6.bugs such as TypeError: Cannot read property 'prototype' of undefined React Express
+soltuion:Delete this code import response from { 'express' }
+7.open console log and axios will always have response inside "data" array (1)
+8.replace the world hello with whatever word ($keyword) the user type/  let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
+backtick v.i since it's a variable 
+9.(response.data[0]);  to display the first item in the array of data .
