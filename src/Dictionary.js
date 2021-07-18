@@ -1,17 +1,22 @@
 import React, {useState}from "react";
 import "./Dictionary.css"
 import axios from "axios";
+import Results from "./Results.js";
 
 //we store value of searching inside state  beacue the value will change during the lifecyle of component
 
 export default function Dictionary (){
     let[keyword, setkeyword] = useState("");
-   
     // here's where the keyword typed 
     //when user submit the search text it will be store inside the state
+    let [results,setResults]= useState(null);
+    // we are using state to send whatever we get back from api , send info to component results (response.data[0])
+    //store the definition of the word which typed by user and  update whenever the user change the word their searching for differnet word
+   
      function handleResponse(response) {
-        console.log(response.data[0]);
+        console.log(response.data[0].meanings[0].definitions[0].definition.example);
         //adding data to fetch all the array  then [0] to dislpay the first item of the array
+        setResults(response.data[0]);
      }
     function handleKeywordChange(event){
         console.log(event.target.value);
@@ -31,10 +36,10 @@ export default function Dictionary (){
     <form onSubmit={search} >
  <input type="search" onChange={handleKeywordChange} />
  
-
+    </form>
+    <Results results={results}/>
 
     
-    </form>
    
     
     </div>);

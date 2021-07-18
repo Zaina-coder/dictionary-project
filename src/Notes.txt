@@ -9,3 +9,7 @@ soltuion:Delete this code import response from { 'express' }
 8.replace the world hello with whatever word ($keyword) the user type/  let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
 backtick v.i since it's a variable 
 9.(response.data[0]);  to display the first item in the array of data .
+Another lesson
+1.we are using state to send whatever we get back from api , send info to component results (response.data[0])
+store the definition of the word which typed by user and  update whenever the user change the word their searching for differnet word
+   2.   <Results results={results}/> result no1 = componentname  results2= property  results3= propertyvalue
