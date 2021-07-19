@@ -16,7 +16,8 @@ import Dictionary from "./Dictionary"
         <Dictionary />
       </main>
       <footer className="text-center">
-        coded by Zainab    
+        coded by Zainab   
+        <a href="https://github.com/Zaina-coder/dictionary-project">open sourced on GitHub</a> 
       </footer>
     </div>
     </div>

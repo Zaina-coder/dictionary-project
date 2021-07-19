@@ -25,7 +25,7 @@ export default function Dictionary (){
     }
     function search (event){
         event.preventDefault();
-        alert(`searching for ${keyword} definition`);
+        //alert(`searching for ${keyword} definition`);
         //shows the value of the state
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
         //replace the world hello with whatever word ($keyword) the user type. 
