@@ -5,6 +5,7 @@ export default function Synonyms (props){
  <ul className="synonyms">
      {props.synonyms.map(function(synonyms,index){
            return <li key={index}>{synonyms}</li>
+           //calling the varible synonyms which we defined in meaing synonyms= {meaning.synonyms}
       }) 
        
      }
