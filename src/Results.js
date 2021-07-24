@@ -1,12 +1,14 @@
 import React from "react";
 import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
+import   "./Results"
 export  default function Results(props){
      console.log(props.results)
      //results inside the Results property
      if (props.results) {
     return (
     <div className="Results">
+      <section>
 
         <h2>{props.results.word}</h2>
         {props.results.phonetics.map(function(phonetic,index){
@@ -15,7 +17,7 @@ export  default function Results(props){
             </div>
             );
         })}
-
+</section>
         
         {props.results.meanings.map(function(meaning,index){
           //meaning.definitions[0].definition;
@@ -24,12 +26,13 @@ export  default function Results(props){
             //results. word or meaning which is in response.data
             //looping thru each meaning and .map that we get from the object word 
             // send that meaning to compenent meaning thru poerty
-              return  (<div  key={index}>
+              return  (<section  key={index}>
                   <Meaning  meaning={meaning} />
                 
-                  </div>)
+                  </section>)
                 
         })}
+
             </div>
     )
      }

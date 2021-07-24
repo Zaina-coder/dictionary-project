@@ -13,7 +13,7 @@ import Dictionary from "./Dictionary"
       
       </header>
       <main >
-        <Dictionary />
+        <Dictionary defaultKeyword= "sunset" />
       </main>
       <footer className="text-center">
         coded by Zainab 

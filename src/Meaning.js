@@ -10,15 +10,15 @@ import Synonyms from "./Synonyms.js";
      <h3>{props.meaning.partOfSpeech}</h3>
      {props.meaning.definitions.map(function(meaning,index){
          return (<div key={index}>
-             <p>
-            <strong>Definition</strong>{meaning.definition}
-             <br/>
-              <strong>Example</strong>
-            <em>{meaning.example}</em> 
-           
+            <div className="definition">
+            {meaning.definition}
+             </div>
+              <div className="example">
+            {meaning.example}
+           </div>
             <Synonyms synonyms= {meaning.synonyms} />
           
-             </p>
+             
 
              </div>
              )
