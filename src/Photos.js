@@ -9,8 +9,8 @@ import "./Photos.css";
                  console.log(props.photos)
                  return  (
                      <div className="col-4" key={index}>
-                         <a href={photo.src.original} target="_blank"   rel="noreferrer"/>
-                 <img src={photo.src.portrait}  className="img-fluid" alt="dictionary pic"/>
+                         <a href={photo.src.original} target="_blank"   rel="noreferrer" aria-hidden="true" > The original</a>  
+                 <img src={photo.src.portrait}  className="img-fluid" alt="dictionarypic"/>
                  </div>
               );
              })}
