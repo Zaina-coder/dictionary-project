@@ -10,7 +10,7 @@ import "./Photos.css";
                  return  (
                      <div className="col-4" key={index}>
                          <a href={photo.src.original} target="_blank"   rel="noreferrer"/>
-                 <img src={photo.src.portrait}  className="img-fluid" alt="img"/>
+                 <img src={photo.src.portrait}  className="img-fluid" alt="dictionary pic"/>
                  </div>
               );
              })}
