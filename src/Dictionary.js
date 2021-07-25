@@ -60,7 +60,7 @@ export default function Dictionary (props){
     return (<div className="Dictionary"> 
     <section>
         <h1>
-            What word do you want to look for ?
+            What word do you want to look for 🔎
         </h1>
     <form onSubmit={handleSumbit} >
  <input type="search" onChange={handleKeywordChange} defaultValue={props.defaultKeyword} />
