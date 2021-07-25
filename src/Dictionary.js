@@ -2,7 +2,7 @@ import React, {useState}from "react";
 import "./Dictionary.css"
 import axios from "axios";
 import Results from "./Results.js";
-
+import Photos from "./Photos";
 //we store value of searching inside state  beacue the value will change during the lifecyle of component
 
 export default function Dictionary (props){
@@ -14,23 +14,32 @@ export default function Dictionary (props){
     //store the definition of the word which typed by user and  update whenever the user change the word their searching for differnet word
    let [loaded, setLoaded]= useState (false);
    //this state is going to keep track of the component loading by default its false
+   let [photos, setPhotos] = useState(null);
      function handleResponse(response) {
-        console.log(response.data[0].meanings[0].definitions[0].definition.example);
+  
         //adding data to fetch all the array  then [0] to dislpay the first item of the array
         setResults(response.data[0]);
      }
+     function handleResponsePexel(response){
+      setPhotos(response.data.photos);
+    }
     function handleKeywordChange(event){
         console.log(event.target.value);
         setkeyword(event.target.value);
 //value stored inside the state
     }
+    
     function search (){
         //alert(`searching for ${keyword} definition`);
         //shows the value of the state
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
         //replace the world hello with whatever word ($keyword) the user type. 
         axios.get(apiUrl).then(handleResponse);
-        
+        let pexelApiKey ="563492ad6f91700001000001e82af111deac4a729c6ebf12ae1852f7";
+        let pexelApiUrl =   `https://api.pexels.com/v1/search?query=${keyword}&per_page=80`;
+        let headers = {Authorization : `Bearer ${pexelApiKey}`} ;
+        axios.get(pexelApiUrl, { headers: headers} ).then(handleResponsePexel);
+        //creating new function since that handleResponse is for dictionary only.
     }
     function handleSumbit (event){
         event.preventDefault();
@@ -60,6 +69,7 @@ export default function Dictionary (props){
     </div>
     </section>
     <Results results={results}/>
+    <Photos photos={photos}/>
     </div>);
 
     } else {
