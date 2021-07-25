@@ -23,24 +23,25 @@ export default function Dictionary (props){
      function handleResponsePexel(response){
       setPhotos(response.data.photos);
     }
-    function handleKeywordChange(event){
-        console.log(event.target.value);
-        setkeyword(event.target.value);
-//value stored inside the state
-    }
-    
-    function search (){
+     function search (){
         //alert(`searching for ${keyword} definition`);
         //shows the value of the state
         let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
         //replace the world hello with whatever word ($keyword) the user type. 
         axios.get(apiUrl).then(handleResponse);
         let pexelApiKey ="563492ad6f91700001000001e82af111deac4a729c6ebf12ae1852f7";
-        let pexelApiUrl =   `https://api.pexels.com/v1/search?query=${keyword}&per_page=80`;
+        let pexelApiUrl =   `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
         let headers = {Authorization : `Bearer ${pexelApiKey}`} ;
         axios.get(pexelApiUrl, { headers: headers} ).then(handleResponsePexel);
         //creating new function since that handleResponse is for dictionary only.
     }
+    function handleKeywordChange(event){
+        console.log(event.target.value);
+        setkeyword(event.target.value);
+//value stored inside the state
+    }
+    
+   
     function handleSumbit (event){
         event.preventDefault();
         search();

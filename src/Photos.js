@@ -1,4 +1,5 @@
 import React from "react";
+import "./Photos.css";
  export default function  Photos (props){
      if (props.photos) {
      return (
@@ -7,9 +8,9 @@ import React from "react";
              {props.photos.map(function(photo,index){ 
                  console.log(props.photos)
                  return  (
-                     <div className="col-3" key={index}>
+                     <div className="col-4" key={index}>
                          <a href={photo.src.original} target="_blank"   rel="noreferrer"/>
-                 <img src={photo.src.sunset}  className="img-fluid" alt=""/>
+                 <img src={photo.src.portrait}  className="img-fluid" alt=""/>
                  </div>
               );
              })}
